@@ -18,9 +18,11 @@ config = {
             "name": "Regimen Switch Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": False,
-            "directory": "",
             "column_names": [
 
+            ],
+            "columns_to_remove": [
+                'arvsGiven', 'location','facility_name','start_date','end_date'
             ]
         },
     ]
