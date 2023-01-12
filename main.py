@@ -1,19 +1,16 @@
 # This is a sample Python script.
+from api.FolderCreator import FolderCreator
+from api.HttpReportService import HttpReportService
+from api.ReportGenerator import ReportGenerator
 from config import config
-
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print(config["urls"][0])
-    print_hi('PyCharm')
+    http_report_service = HttpReportService(config)
+    folder_creator = FolderCreator(config=config)
+    folder_creator.create_report_folders()
+    http_report_service.get_reports_from_server()
+    report_generator = ReportGenerator(http_report_service.get_reports(), config)
+    report_generator.get_data_frame()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
