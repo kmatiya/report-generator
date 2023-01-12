@@ -1,4 +1,4 @@
-# report-generator
+# Report Generator
 Repository to support generating reports through reading API endpoints. 
 There are a lot of reports that organizations compile and different times. This project will help pull such reports through API endpoints, validate the reports 
 and create files to simplify the process of manually compiling each report. For example, Partners in Health Malawi each quarter compiles over 150 HIV reports 
