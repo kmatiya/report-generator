@@ -16,10 +16,16 @@ class ReportGenerator:
             prefix = str(x["prefix"])
             complete_report_path = os.path.join(base_location, prefix, report_name)
             reports_by_name = self.__reports[int(idx)][report_name]
-            print(len(reports_by_name))
+            #print(len(reports_by_name))
             for index, each_report in enumerate(reports_by_name):
                 print(each_report)
                 report_df = pd.DataFrame.from_dict(each_report)
+                for each_column in x['column_names']:
+                    key = list(each_column.keys())[0]
+                    value = each_column[key]
+                    #print(key)
+                    #print(value)
+                    report_df.rename(columns={key: value}, inplace=True)
                 facility = report_df['facility_name'].iat[0]
                 start_date_split = str(report_df['start_date'].iat[0]).split('-')
                 end_date_split = str(report_df['end_date'].iat[0]).split('-')
@@ -28,7 +34,7 @@ class ReportGenerator:
                 end_date = date(day=int(end_date_split[2]), month=int(end_date_split[1]),
                                 year=int(end_date_split[0])).strftime("%d%b%Y")
                 report_date = start_date + " - " + end_date
-                print(report_df)
+                #print(report_df)
                 new_file = os.path.join(complete_report_path,
                                         prefix + ' ' + facility + ' ' + report_name + ' ' + report_date + '.csv')
                 report_df.to_csv(new_file, index=False)
