@@ -2,7 +2,9 @@
 from api.FolderCreator import FolderCreator
 from api.HttpReportService import HttpReportService
 from api.ReportGenerator import ReportGenerator
-from config import config
+# from config import config
+# if using pihmalawi
+from pihmalawi_config import config
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':

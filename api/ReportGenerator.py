@@ -17,7 +17,7 @@ class ReportGenerator:
             reports_by_name = self.__reports[int(idx)][report_name]
             for index, each_report in enumerate(reports_by_name):
                 report_df = pd.DataFrame.from_dict(each_report)
-                for each_column in x['column_names']:
+                for each_column in x['column_names_to_rename']:
                     key = list(each_column.keys())[0]
                     value = each_column[key]
                     report_df.rename(columns={key: value}, inplace=True)
