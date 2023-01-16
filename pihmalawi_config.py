@@ -259,17 +259,15 @@ config = {
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
             "column_names_to_rename": [
-                # {"identifier": "ARV#"},
-                # {"gender": "Gender"},
-                # {"dob": "DOB"},
-                # {"artStartDate": "ART start date"},
-                # {"weight": "Weight(Kg)"},
-                # {"artRegimen": "Regimen"},
-                # {"arvsGiven": "ARVs"},
-                # {"dispenseDate": "Dispensed date"},
+                {"sortValue": "#"},
+                {"ageGroup": "Age Group"},
+                {"gender": "Gender"},
+                {"returnedLessThanThreeMonths": "Returned <3 mo"},
+                {"returnedThreeToFiveMonths": "Returned 3-5 mo"},
+                {"returnedSixMonthsPlus": "Returned 6+ mo"},
             ],
             "columns_to_remove": [
-                # 'location', 'facility_name', 'start_date', 'end_date'
+                'facility_name', 'start_date', 'end_date'
             ]
         },
     ]
