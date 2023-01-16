@@ -201,17 +201,16 @@ config = {
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
             "column_names_to_rename": [
-                # {"identifier": "ARV#"},
-                # {"gender": "Gender"},
-                # {"dob": "DOB"},
-                # {"artStartDate": "ART start date"},
-                # {"weight": "Weight(Kg)"},
-                # {"artRegimen": "Regimen"},
-                # {"arvsGiven": "ARVs"},
-                # {"dispenseDate": "Dispensed date"},
+                {"sortValue": "#"},
+                {"ageGroup": "Age Group"},
+                {"gender": "Gender"},
+                {"txNew": "Tx new (new on ART)"},
+                {"txCurr": "TX curr (receiving ART)"},
+                {"txCurrIpt": "TX curr (received IPT)"},
+                {"txCurrScreenedTb": "TX curr (screened for TB)"},
             ],
             "columns_to_remove": [
-                # 'location', 'facility_name', 'start_date', 'end_date'
+                'facility_name', 'start_date', 'end_date'
             ]
         },
         {
