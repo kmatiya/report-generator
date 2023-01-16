@@ -150,6 +150,7 @@ config = {
                 {"txCurr": "TX curr (receiving ART)"},
                 {"txCurrIpt": "TX curr (received IPT)"},
                 {"txCurrScreenedTb": "TX curr (screened for TB)"},
+                {"nonStandard": "Unknown"},
             ],
             "columns_to_remove": [
                 'facility_name', 'start_date', 'end_date'
@@ -162,17 +163,17 @@ config = {
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
             "column_names_to_rename": [
-                # {"identifier": "ARV#"},
-                # {"gender": "Gender"},
-                # {"dob": "DOB"},
-                # {"artStartDate": "ART start date"},
-                # {"weight": "Weight(Kg)"},
-                # {"artRegimen": "Regimen"},
-                # {"arvsGiven": "ARVs"},
-                # {"dispenseDate": "Dispensed date"},
+                {"sortValue": "#"},
+                {"district": "District"},
+                {"gender": "Gender"},
+                {"ageGroup": "Age Group"},
+                {"newStartThreeHp": "3HP(Started new on ART)"},
+                {"newStartSixH": "6HP(Started New on ART)"},
+                {"previousStartThreeHp": "3HP(Started Previously on ART)"},
+                {"previousStartSixH": "6H(Started Previously on ART)"},
             ],
             "columns_to_remove": [
-                # 'location', 'facility_name', 'start_date', 'end_date'
+                'facility_name', 'start_date', 'end_date'
             ]
         },
         {
