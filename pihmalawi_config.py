@@ -244,7 +244,7 @@ config = {
                 {"died": "Died"},
                 {"iit3moOrLessMo": "IIT <3 mo"},
                 {"iit3to5Mo": "IIT 3-5 mo"},
-                {"iit6+Mo", "IIT 6+ mo"},
+                {"iit6+Mo": "IIT 6+ mo"},
                 {"transferredOut": "Transferred out"},
                 {"refusedStopped": "Refused (Stopped) "},
             ],
