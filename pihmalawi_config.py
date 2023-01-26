@@ -214,7 +214,7 @@ config = {
             ]
         },
         {
-            "resource": "pihmalawi/report/pepfar-cohort-disaggregated",
+            "resource": "pihmalawi/report/pepfar-tx-curr-mmd",
             "prefix": "PEPFAR",
             "name": "TX_CURR MMD Report",
             "use_start_date_in_request": True,
