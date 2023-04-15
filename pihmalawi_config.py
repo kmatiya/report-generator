@@ -2,14 +2,25 @@ config = {
     "base_file_path": "./Q4 Reports",
     "endpoints": [
         {
-            "base": "http://localhost:8081/openmrs/ws/rest/v1/",
+            "base": "https://bwenzi.pih-emr.org/openmrs/ws/rest/v1/",
             "username": "",
             "password": "",
-            "default_start_date": "2022-04-01",
-            "default_end_date": "2022-06-30",
+            "default_start_date": "2023-01-01",
+            "default_end_date": "2023-03-31",
             "location": [
                 "Neno District Hospital", "Ligowe HC", "Magaleta HC", "Nsambe HC", "Dambe Clinic", "Neno Mission HC",
                 "Matandani Rural Health Center", "Luwani RHC"
+            ]
+        },
+        {
+            "base": "https://bwenzi.pih-emr.org/openmrs/ws/rest/v1/",
+            "username": "kmatiya",
+            "password": "@1450kondwani",
+            "default_start_date": "2023-01-01",
+            "default_end_date": "2023-03-31",
+            "location": [
+                "Lisungwi Community Hospital", "Zalewa HC", "Matope HC", "Midzemaba HC", "Chifunga HC",
+                "Nkhula Falls RHC"
             ]
         },
     ],
