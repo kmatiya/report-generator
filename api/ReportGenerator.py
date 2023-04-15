@@ -10,18 +10,19 @@ class ReportGenerator:
 
     def get_data_frame(self):
         base_location = self.__config["base_file_path"]
+        print("Create files for each report")
         for idx, x in enumerate(self.__config["reports"]):
             report_name = str(x['name'])
             prefix = str(x["prefix"])
             complete_report_path = os.path.join(base_location, prefix, report_name)
-            reports_by_name = self.__reports[int(idx)][report_name]
-            for index, each_report in enumerate(reports_by_name):
-                report_df = pd.DataFrame.from_dict(each_report)
+            reports_by_name = self.__reports[int(idx)]
+            for index, each_report_index in enumerate(reports_by_name):
+                report_to_print = each_report_index[report_name][index]
+                report_df = pd.DataFrame.from_dict(report_to_print)
                 for each_column in x['column_names_to_rename']:
                     key = list(each_column.keys())[0]
                     value = each_column[key]
                     report_df.rename(columns={key: value}, inplace=True)
-
                 facility = report_df['facility_name'].iat[0]
                 start_date_split = str(report_df['start_date'].iat[0]).split('-')
                 end_date_split = str(report_df['end_date'].iat[0]).split('-')
@@ -34,3 +35,5 @@ class ReportGenerator:
                 new_file = os.path.join(complete_report_path,
                                         prefix + ' ' + facility + ' ' + report_name + ' ' + report_date + '.csv')
                 report_df.to_csv(new_file, index=False)
+                print(
+                    prefix + ' ' + facility + ' ' + report_name + ' ' + report_date + '.csv' + " created in " + new_file)

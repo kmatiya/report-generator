@@ -40,23 +40,29 @@ class HttpReportService:
                     params['startDate'] = start_date
                 if each_report['use_end_date_in_request']:
                     params['endDate'] = end_date
+                print("Request for " + each_report["name"] + " for the following parameters: " + str(params))
                 get_report = requests.get(url, params=params,
                                           auth=HTTPBasicAuth(username=location_end_point["username"],
                                                              password=location_end_point["password"]))
                 if get_report.status_code == 200:
+                    print("Successful Request for " + each_report["name"])
                     report_json = json.loads(get_report.text)
+
                     for e in report_json:
                         e["facility_name"] = location
                         e['start_date'] = start_date
                         e['end_date'] = end_date
-                    report_for_all_locations.append(report_json)
-            reports.append(
-                {
-                    each_report["name"]: report_for_all_locations
-                }
-            )
+                    if len(report_json) == 0:
+                        print("Report is blank, please download it manually from server")
+                    else:
+                        report_for_all_locations.append(report_json)
+                        reports.append(
+                            {
+                                each_report["name"]: report_for_all_locations
+                            }
+                        )
             if len(reports) > 0:
-                self.__reports = reports
+                self.__reports.append(reports)
 
     def get_reports(self):
         return self.__reports
