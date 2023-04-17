@@ -2,7 +2,7 @@ config = {
     "base_file_path": "./Q4 Reports",
     "endpoints": [
         {
-            "base": "https://bwenzi.pih-emr.org/openmrs/ws/rest/v1/",
+            "base": "https://neno.pih-emr.org/openmrs/ws/rest/v1/",
             "username": "",
             "password": "",
             "default_start_date": "2023-01-01",
@@ -13,9 +13,9 @@ config = {
             ]
         },
         {
-            "base": "https://bwenzi.pih-emr.org/openmrs/ws/rest/v1/",
-            "username": "kmatiya",
-            "password": "@1450kondwani",
+            "base": "http://lisungwi.pih-emr.org:8100/openmrs/ws/rest/v1/",
+            "username": "",
+            "password": "",
             "default_start_date": "2023-01-01",
             "default_end_date": "2023-03-31",
             "location": [
