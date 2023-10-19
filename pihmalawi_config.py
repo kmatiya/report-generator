@@ -16,7 +16,7 @@ config = {
             "base": "http://lisungwi.pih-emr.org:8100/openmrs/ws/rest/v1/",
             "username": "",
             "password": "",
-            "default_start_date": "2023-09-30",
+            "default_start_date": "2023-07-01",
             "default_end_date": "2023-09-30",
             "location": [
                 "Lisungwi Community Hospital", "Zalewa HC", "Matope HC", "Midzemaba HC", "Chifunga HC",
@@ -299,6 +299,28 @@ config = {
                 {"completedNewStartSixH": "6H(Completed New on ART)"},
                 {"completedOldThreeHp": "3HP(Completed Previously on ART)"},
                 {"completedOldSixH": "6H(Completed Previously on ART)"},
+            ],
+            "columns_to_remove": [
+                'facility_name', 'start_date', 'end_date'
+            ]
+        },
+
+        {
+            "resource": "pihmalawi/report/pepfar-tx-tb",
+            "prefix": "PEPFAR",
+            "name": "TX_TB Report",
+            "use_start_date_in_request": False,
+            "use_end_date_in_request": True,
+            "column_names_to_rename": [
+                {"sortValue": "#"},
+                {"ageGroup": "Age Group"},
+                {"gender": "Gender"},
+                {"screenedForTbTxNewPos": "screened_for_tb_tx_new_pos"},
+                {"screenedForTbTxNewNeg": "screened_for_tb_tx_new_neg"},
+                {"screenedForTbTxPrevPos": "screened_for_tb_tx_prev_pos"},
+                {"screenedForTbTxPrevNeg": "screened_for_tb_tx_prev_neg"},
+                {"tbRxNew": "tb_rx_new"},
+                {"tbRxPrev": "tb_rx_prev"},
             ],
             "columns_to_remove": [
                 'facility_name', 'start_date', 'end_date'
