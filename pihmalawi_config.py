@@ -1,12 +1,12 @@
 config = {
-    "base_file_path": "./Q4 Reports",
+    "base_file_path": "./Q3 Reports",
     "endpoints": [
         {
-            "base": "https://neno.pih-emr.org/openmrs/ws/rest/v1/",
+            "base": "https://neno.pih-emr.org:11443/openmrs/ws/rest/v1/",
             "username": "",
             "password": "",
-            "default_start_date": "2023-01-01",
-            "default_end_date": "2023-03-31",
+            "default_start_date": "2023-07-01",
+            "default_end_date": "2023-09-30",
             "location": [
                 "Neno District Hospital", "Ligowe HC", "Magaleta HC", "Nsambe HC", "Dambe Clinic", "Neno Mission HC",
                 "Matandani Rural Health Center", "Luwani RHC"
@@ -16,8 +16,8 @@ config = {
             "base": "http://lisungwi.pih-emr.org:8100/openmrs/ws/rest/v1/",
             "username": "",
             "password": "",
-            "default_start_date": "2023-01-01",
-            "default_end_date": "2023-03-31",
+            "default_start_date": "2023-07-01",
+            "default_end_date": "2023-09-30",
             "location": [
                 "Lisungwi Community Hospital", "Zalewa HC", "Matope HC", "Midzemaba HC", "Chifunga HC",
                 "Nkhula Falls RHC"
@@ -276,6 +276,51 @@ config = {
                 {"returnedLessThanThreeMonths": "Returned <3 mo"},
                 {"returnedThreeToFiveMonths": "Returned 3-5 mo"},
                 {"returnedSixMonthsPlus": "Returned 6+ mo"},
+            ],
+            "columns_to_remove": [
+                'facility_name', 'start_date', 'end_date'
+            ]
+        },
+        {
+            "resource": "pihmalawi/report/pepfar-tb-prev",
+            "prefix": "PEPFAR",
+            "name": "TB_Prev Report",
+            "use_start_date_in_request": False,
+            "use_end_date_in_request": True,
+            "column_names_to_rename": [
+                {"sortValue": "#"},
+                {"ageGroup": "Age Group"},
+                {"gender": "Gender"},
+                {"newStartThreeHp": "3HP(Started New on ART)"},
+                {"newStartSixH": "6H(Started New on ART)"},
+                {"previousStartThreeHp": "3HP(Started Previously on ART)"},
+                {"previousStartSixH": "6H(Started Previously on ART)"},
+                {"completedNewStartThreeHp": "3HP(Completed New on ART)"},
+                {"completedNewStartSixH": "6H(Completed New on ART)"},
+                {"completedOldThreeHp": "3HP(Completed Previously on ART)"},
+                {"completedOldSixH": "6H(Completed Previously on ART)"},
+            ],
+            "columns_to_remove": [
+                'facility_name', 'start_date', 'end_date'
+            ]
+        },
+
+        {
+            "resource": "pihmalawi/report/pepfar-tx-tb",
+            "prefix": "PEPFAR",
+            "name": "TX_TB Report",
+            "use_start_date_in_request": False,
+            "use_end_date_in_request": True,
+            "column_names_to_rename": [
+                {"sortValue": "#"},
+                {"ageGroup": "Age Group"},
+                {"gender": "Gender"},
+                {"screenedForTbTxNewPos": "screened_for_tb_tx_new_pos"},
+                {"screenedForTbTxNewNeg": "screened_for_tb_tx_new_neg"},
+                {"screenedForTbTxPrevPos": "screened_for_tb_tx_prev_pos"},
+                {"screenedForTbTxPrevNeg": "screened_for_tb_tx_prev_neg"},
+                {"tbRxNew": "tb_rx_new"},
+                {"tbRxPrev": "tb_rx_prev"},
             ],
             "columns_to_remove": [
                 'facility_name', 'start_date', 'end_date'
