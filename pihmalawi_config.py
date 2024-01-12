@@ -19,7 +19,7 @@ config = {
             "default_start_date": "2023-07-01",
             "default_end_date": "2023-09-30",
             "location": [
-                "Lisungwi Community Hospital", "Zalewa HC", "Matope HC", "Midzemaba HC", "Chifunga HC",
+                "Lisungwi Community Hospital", "Zalewa HC", "Matope HC", "Midzemba HC", "Chifunga HC",
                 "Nkhula Falls RHC"
             ]
         },
@@ -150,17 +150,14 @@ config = {
         {
             "resource": "pihmalawi/report/moh-cohort-disaggregated",
             "prefix": "MoH",
-            "name": "Cohort Disaggregated Report",
+            "name": "TX_Curr Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
             "column_names_to_rename": [
                 {"sortValue": "#"},
                 {"ageGroup": "Age Group"},
                 {"gender": "Gender"},
-                {"txNew": "Tx new (new on ART)"},
                 {"txCurr": "TX curr (receiving ART)"},
-                {"txCurrIpt": "TX curr (received IPT)"},
-                {"txCurrScreenedTb": "TX curr (screened for TB)"},
                 {"nonStandard": "Unknown"},
             ],
             "columns_to_remove": [
@@ -208,17 +205,15 @@ config = {
         {
             "resource": "pihmalawi/report/pepfar-cohort-disaggregated",
             "prefix": "PEPFAR",
-            "name": "Cohort Disaggregated Report",
+            "name": "TX_Curr Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
             "column_names_to_rename": [
                 {"sortValue": "#"},
                 {"ageGroup": "Age Group"},
                 {"gender": "Gender"},
-                {"txNew": "Tx new (new on ART)"},
                 {"txCurr": "TX curr (receiving ART)"},
-                {"txCurrIpt": "TX curr (received IPT)"},
-                {"txCurrScreenedTb": "TX curr (screened for TB)"},
+                {"nonStandard": "Unknown"},
             ],
             "columns_to_remove": [
                 'facility_name', 'start_date', 'end_date'
@@ -315,16 +310,61 @@ config = {
                 {"sortValue": "#"},
                 {"ageGroup": "Age Group"},
                 {"gender": "Gender"},
-                {"screenedForTbTxNewPos": "screened_for_tb_tx_new_pos"},
-                {"screenedForTbTxNewNeg": "screened_for_tb_tx_new_neg"},
-                {"screenedForTbTxPrevPos": "screened_for_tb_tx_prev_pos"},
-                {"screenedForTbTxPrevNeg": "screened_for_tb_tx_prev_neg"},
-                {"tbRxNew": "tb_rx_new"},
-                {"tbRxPrev": "tb_rx_prev"},
+                {"screenedForTbTxNewPos": "New on ART/Screen Positive"},
+                {"screenedForTbTxNewNeg": "New on ART/Screen Negative"},
+                {"screenedForTbTxPrevPos": "Already on ART/Screen Positive"},
+                {"screenedForTbTxPrevNeg": "Already on ART/Screen Negative"},
+                {"tbRxNew": "Started TB RX_New on ART"},
+                {"tbRxPrev": "Started TB RX_Prev on ART"},
             ],
             "columns_to_remove": [
                 'facility_name', 'start_date', 'end_date'
             ]
         },
+
+        {
+            "resource": "pihmalawi/report/moh-tx_new-report",
+            "prefix": "MOH",
+            "name": "TX_New Report",
+            "use_start_date_in_request": True,
+            "use_end_date_in_request": True,
+            "column_names_to_rename": [
+                {"sortValue": "#"},
+                {"ageGroup": "Age Group"},
+                {"gender": "Gender"},
+                {"txNewCd4LessThanTwoHundred": "Tx new CD4<200"},
+                {"txNewCd4EqualToOrGreaterThanTwoHundred": "Tx new CD4=>200"},
+                {"txNewCd4EqualUnknownOrNotDone": "Tx new CD4 Unknow/ not done"},
+                {"transferIns": "Transfer-ins"},
+            ],
+            "columns_to_remove": [
+                'facility_name', 'start_date', 'end_date'
+            ]
+        },
+
+        {
+            "resource": "pihmalawi/report/pepfar-tx_new-report",
+            "prefix": "PEPFAR",
+            "name": "TX_New Report",
+            "use_start_date_in_request": True,
+            "use_end_date_in_request": True,
+            "column_names_to_rename": [
+                {"sortValue": "#"},
+                {"ageGroup": "Age Group"},
+                {"gender": "Gender"},
+                {"txNewCd4LessThanTwoHundred": "Tx new CD4<200"},
+                {"txNewCd4EqualToOrGreaterThanTwoHundred": "Tx new CD4=>200"},
+                {"txNewCd4EqualUnknownOrNotDone": "Tx new CD4 Unknow/ not done"},
+                {"transferIns": "Transfer-ins"},
+            ],
+            "columns_to_remove": [
+                'facility_name', 'start_date', 'end_date'
+            ]
+        },
+
+
+
+
+
     ]
 }
