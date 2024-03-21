@@ -1,12 +1,12 @@
 config = {
-    "base_file_path": "./Q3 Reports",
+    "base_file_path": "./Q1 Reports",
     "endpoints": [
         {
             "base": "https://neno.pih-emr.org:11443/openmrs/ws/rest/v1/",
             "username": "",
             "password": "",
-            "default_start_date": "2023-07-01",
-            "default_end_date": "2023-09-30",
+            "default_start_date": "2024-01-01",
+            "default_end_date": "2024-03-31",
             "location": [
                 "Neno District Hospital", "Ligowe HC", "Magaleta HC", "Nsambe HC", "Dambe Clinic", "Neno Mission HC",
                 "Matandani Rural Health Center", "Luwani RHC"
@@ -16,8 +16,8 @@ config = {
             "base": "http://lisungwi.pih-emr.org:8100/openmrs/ws/rest/v1/",
             "username": "",
             "password": "",
-            "default_start_date": "2023-07-01",
-            "default_end_date": "2023-09-30",
+            "default_start_date": "2024-01-01",
+            "default_end_date": "2024-03-31",
             "location": [
                 "Lisungwi Community Hospital", "Zalewa HC", "Matope HC", "Midzemba HC", "Chifunga HC",
                 "Nkhula Falls RHC"
@@ -27,7 +27,7 @@ config = {
     "reports": [
         {
             "resource": "pihmalawi/report/moh-regimen-switch",
-            "prefix": "MoH",
+            "prefix": "MOH",
             "name": "Regimen Switch Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": False,
@@ -48,7 +48,7 @@ config = {
         },
         {
             "resource": "pihmalawi/report/moh-survival-analysis-general",
-            "prefix": "MoH",
+            "prefix": "MOH",
             "name": "Survival Analysis (General) Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
@@ -70,7 +70,7 @@ config = {
         },
         {
             "resource": "pihmalawi/report/moh-survival-analysis-children",
-            "prefix": "MoH",
+            "prefix": "MOH",
             "name": "Survival Analysis (Children) Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
@@ -92,7 +92,7 @@ config = {
         },
         {
             "resource": "pihmalawi/report/moh-survival-analysis-option-b",
-            "prefix": "MoH",
+            "prefix": "MOH",
             "name": "Survival Analysis (Option B) Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
@@ -114,7 +114,7 @@ config = {
         },
         {
             "resource": "pihmalawi/report/moh-regimen-dispensation",
-            "prefix": "MoH",
+            "prefix": "MOH",
             "name": "Regimen Dispensation Report",
             "use_start_date_in_request": False,
             "use_end_date_in_request": True,
@@ -134,7 +134,7 @@ config = {
         },
         {
             "resource": "pihmalawi/report/moh-regimen-dispensation-by-weight",
-            "prefix": "MoH",
+            "prefix": "MOH",
             "name": "Regimen Dispensation By Weight Report",
             "use_start_date_in_request": False,
             "use_end_date_in_request": True,
@@ -149,7 +149,7 @@ config = {
         },
         {
             "resource": "pihmalawi/report/moh-cohort-disaggregated",
-            "prefix": "MoH",
+            "prefix": "MOH",
             "name": "TX_Curr Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
@@ -166,7 +166,7 @@ config = {
         },
         {
             "resource": "pihmalawi/report/moh-tpt-new-initiation",
-            "prefix": "MoH",
+            "prefix": "MOH",
             "name": "TPT New Initiation Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
@@ -186,7 +186,7 @@ config = {
         },
         {
             "resource": "pihmalawi/report/moh-tx-curr-mmd",
-            "prefix": "MoH",
+            "prefix": "MOH",
             "name": "TX_CURR MMD Report",
             "use_start_date_in_request": True,
             "use_end_date_in_request": True,
@@ -310,6 +310,10 @@ config = {
                 {"sortValue": "#"},
                 {"ageGroup": "Age Group"},
                 {"gender": "Gender"},
+                {"txCurr": "tx_curr"},
+                {"symptomScreenAlone": "symptom_screen_alone"},
+                {"cxrScreen": "cxr_screen"},
+                {"mwrdScreen": "mwrd_screen"},
                 {"screenedForTbTxNewPos": "New on ART/Screen Positive"},
                 {"screenedForTbTxNewNeg": "New on ART/Screen Negative"},
                 {"screenedForTbTxPrevPos": "Already on ART/Screen Positive"},
@@ -321,6 +325,30 @@ config = {
                 'facility_name', 'start_date', 'end_date'
             ]
         },
+
+        {
+            "resource": "pihmalawi/report/pepfar-tx-pvls",
+            "prefix": "PEPFAR",
+            "name": "TX_PVLS Report",
+            "use_start_date_in_request": False,
+            "use_end_date_in_request": True,
+            "column_names_to_rename": [
+                {"sortValue": "#"},
+                {"ageGroup": "Age Group"},
+                {"gender": "Gender"},
+                {"dueForVl": "due_for_vl"},
+                {"routineSamplesDrawn": "routine_samples_drawn"},
+                {"targetSamplesDrawn": "target_samples_drawn"},
+                {"routineHighVlMoreThan1000Copies": "routine_high_vl_more_than_1000_copies"},
+                {"targetedHighVlMoreThan1000Copies": "targeted_high_vl_more_than_1000_copies"},
+                {"routineLowVlLessThan1000Copies": "routine_low_vl_less_than_1000_copies"},
+                {"targetedLowVlLessThan1000Copies": "targeted_low_vl_less_than_1000_copies"},
+            ],
+            "columns_to_remove": [
+                'facility_name', 'start_date', 'end_date'
+            ]
+        },
+
 
         {
             "resource": "pihmalawi/report/moh-tx_new-report",
@@ -361,10 +389,6 @@ config = {
                 'facility_name', 'start_date', 'end_date'
             ]
         },
-
-
-
-
 
     ]
 }
